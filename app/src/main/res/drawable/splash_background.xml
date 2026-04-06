@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2017-2025 WireGuard LLC. All Rights Reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/aio_background" />
+    <item
+        android:gravity="center"
+        android:width="620dp"
+        android:height="320dp"
+        android:drawable="@drawable/aio_vpn_logo" />
+</layer-list>

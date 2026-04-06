@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2017-2026 WireGuard LLC. All Rights Reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aio_background"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- MAIN CONTENT AREA -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainContentWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/aio_nav_width"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/settingsContent"
+            style="@style/Aio.ScreenPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settingsTitle"
+                style="@style/Aio.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/aio_section_title_spacing"
+                android:text="@string/aio_title_settings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/aio_section_spacing"
+                android:text="@string/aio_subtitle_settings"
+                android:textColor="@color/aio_text_secondary"
+                android:textSize="@dimen/aio_subtitle_size" />
+
+            <!-- VPN SETTINGS CARD -->
+            <LinearLayout
+                style="@style/Aio.CardSurface"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/aio_card_padding_small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:letterSpacing="0.08"
+                    android:text="VPN Settings"
+                    android:textAllCaps="true"
+                    android:textColor="@color/aio_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/settingKillSwitch"
+                    style="@style/Aio.SettingsItem"
+                    android:text="@string/aio_setting_kill_switch"
+                    android:textColor="@color/aio_text_primary"
+                    android:textSize="@dimen/aio_subtitle_size" />
+
+                <TextView
+                    android:id="@+id/settingAutoConnect"
+                    style="@style/Aio.SettingsItem"
+                    android:text="@string/aio_setting_auto_connect"
+                    android:textColor="@color/aio_text_primary"
+                    android:textSize="@dimen/aio_subtitle_size" />
+
+                <TextView
+                    android:id="@+id/settingSplitTunneling"
+                    style="@style/Aio.SettingsItem"
+                    android:text="Split Tunneling  •  Off"
+                    android:textColor="@color/aio_text_primary"
+                    android:textSize="@dimen/aio_subtitle_size" />
+            </LinearLayout>
+
+            <!-- APP UPDATES CARD -->
+            <LinearLayout
+                style="@style/Aio.CardSurface"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/aio_section_spacing"
+                android:orientation="vertical"
+                android:padding="@dimen/aio_card_padding_small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:letterSpacing="0.08"
+                    android:text="App Updates"
+                    android:textAllCaps="true"
+                    android:textColor="@color/aio_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <!-- Current Version -->
+                <RelativeLayout
+                    android:id="@+id/settingCurrentVersion"
+                    style="@style/Aio.SettingsItem"
+                    android:clickable="false"
+                    android:focusable="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Current Version"
+                        android:textColor="@color/aio_text_primary"
+                        android:textSize="@dimen/aio_subtitle_size" />
+
+                    <TextView
+                        android:id="@+id/currentVersionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="1.0.0"
+                        android:textColor="@color/aio_text_secondary"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <!-- Update Status -->
+                <RelativeLayout
+                    android:id="@+id/settingUpdateStatus"
+                    style="@style/Aio.SettingsItem"
+                    android:clickable="false"
+                    android:focusable="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Update Status"
+                        android:textColor="@color/aio_text_primary"
+                        android:textSize="@dimen/aio_subtitle_size" />
+
+                    <TextView
+                        android:id="@+id/updateStatusText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="Checking..."
+                        android:textColor="@color/aio_text_secondary"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <!-- Check for Updates -->
+                <RelativeLayout
+                    android:id="@+id/settingCheckUpdates"
+                    style="@style/Aio.SettingsItem">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Check for Updates"
+                        android:textColor="@color/aio_text_primary"
+                        android:textSize="@dimen/aio_subtitle_size" />
+
+                    <TextView
+                        android:id="@+id/checkUpdatesActionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="Check"
+                        android:textColor="@color/aio_text_secondary"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <!-- Release Notes -->
+                <TextView
+                    android:id="@+id/updateReleaseNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:text=""
+                    android:textColor="@color/aio_text_secondary"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- UNIFIED PERSISTENT SIDEBAR -->
+    <include layout="@layout/layout_side_nav" />
+
+</FrameLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aio_background"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- MAIN CONTENT AREA -->
+    <LinearLayout
+        android:id="@+id/mainContentWrapper"
+        style="@style/Aio.ScreenPadding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/aio_nav_width"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/serverListTitle"
+            style="@style/Aio.TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/aio_section_title_spacing"
+            android:text="@string/aio_title_servers" />
+
+        <TextView
+            android:id="@+id/serverListSubtitle"
+            style="@style/Aio.SubtitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/aio_subtitle_servers" />
+
+        <HorizontalScrollView
+            android:id="@+id/filterScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/filterRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/filterAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:background="@drawable/server_filter_chip_bg"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@string/aio_filter_all"
+                    android:textColor="@color/aio_text_primary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filterFastest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/server_filter_chip_bg"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@string/aio_filter_fastest"
+                    android:textColor="@color/aio_text_primary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filterRecommended"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/server_filter_chip_bg"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@string/aio_filter_recommended"
+                    android:textColor="@color/aio_text_primary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filterFavorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/server_filter_chip_bg"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@string/aio_filter_favorites"
+                    android:textColor="@color/aio_text_primary"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/aioServerList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="24dp"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <!-- UNIFIED PERSISTENT SIDEBAR -->
+    <include layout="@layout/layout_side_nav" />
+
+</FrameLayout>

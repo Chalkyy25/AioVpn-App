@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2017-2026 WireGuard LLC. All Rights Reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aio_background"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- MAIN CONTENT AREA -->
+    <LinearLayout
+        android:id="@+id/mainContentWrapper"
+        style="@style/Aio.ScreenPadding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/aio_nav_width"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/splitTitle"
+            style="@style/Aio.TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Split Tunneling" />
+
+        <TextView
+            android:id="@+id/splitSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/aio_section_spacing"
+            android:text="Select apps to bypass the VPN"
+            android:textColor="@color/aio_text_secondary"
+            android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/appListRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingBottom="24dp"
+            android:scrollbars="none" />
+
+    </LinearLayout>
+
+    <!-- UNIFIED PERSISTENT SIDEBAR -->
+    <include layout="@layout/layout_side_nav" />
+
+</FrameLayout>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sideNav"
+    android:layout_width="84dp"
+    android:layout_height="match_parent"
+    android:background="#EE111620"
+    android:orientation="vertical"
+    android:paddingTop="32dp"
+    android:paddingBottom="24dp"
+    android:elevation="12dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Logo Container: Fixed height to prevent vertical jumping of items below -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginBottom="32dp"
+        android:clipChildren="false">
+
+        <ImageView
+            android:id="@+id/navLogo"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:contentDescription="AIO VPN"
+            android:src="@drawable/aio_nav_logo" />
+
+        <ImageView
+            android:id="@+id/navLogoBanner"
+            android:layout_width="180dp"
+            android:layout_height="54dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:alpha="0"
+            android:contentDescription="AIO VPN"
+            android:scaleType="fitStart"
+            android:src="@drawable/tv_logo_banner"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Home Container -->
+    <LinearLayout
+        android:id="@+id/navHomeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/nav_item_selector">
+
+        <ImageView
+            android:id="@+id/railHome"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="14dp"
+            android:src="@drawable/ic_nav_home"
+            app:tint="#EAF1FF"
+            android:duplicateParentState="true" />
+
+        <TextView
+            android:id="@+id/navHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Home"
+            android:textColor="#EAF1FF"
+            android:textSize="20sp"
+            android:alpha="0"
+            android:duplicateParentState="true" />
+    </LinearLayout>
+
+    <!-- Servers Container -->
+    <LinearLayout
+        android:id="@+id/navServersContainer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/nav_item_selector">
+
+        <ImageView
+            android:id="@+id/railServers"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="14dp"
+            android:src="@drawable/ic_nav_servers"
+            app:tint="#EAF1FF"
+            android:duplicateParentState="true" />
+
+        <TextView
+            android:id="@+id/navServers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Servers"
+            android:textColor="#EAF1FF"
+            android:textSize="20sp"
+            android:alpha="0"
+            android:duplicateParentState="true" />
+    </LinearLayout>
+
+    <!-- Account Container -->
+    <LinearLayout
+        android:id="@+id/navAccountContainer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/nav_item_selector">
+
+        <ImageView
+            android:id="@+id/railAccount"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="14dp"
+            android:src="@drawable/ic_nav_account"
+            app:tint="#EAF1FF"
+            android:duplicateParentState="true" />
+
+        <TextView
+            android:id="@+id/navAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Account"
+            android:textColor="#EAF1FF"
+            android:textSize="20sp"
+            android:alpha="0"
+            android:duplicateParentState="true" />
+    </LinearLayout>
+
+    <!-- Settings Container -->
+    <LinearLayout
+        android:id="@+id/navSettingsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/nav_item_selector">
+
+        <ImageView
+            android:id="@+id/railSettings"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="14dp"
+            android:src="@drawable/ic_nav_settings"
+            app:tint="#EAF1FF"
+            android:duplicateParentState="true" />
+
+        <TextView
+            android:id="@+id/navSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Settings"
+            android:textColor="#EAF1FF"
+            android:textSize="20sp"
+            android:alpha="0"
+            android:duplicateParentState="true" />
+    </LinearLayout>
+
+</LinearLayout>

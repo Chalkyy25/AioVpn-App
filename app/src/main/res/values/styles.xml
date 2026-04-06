@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright © 2017-2025 WireGuard LLC. All Rights Reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="WireGuardTheme.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">?attr/colorSurface</item>
+    </style>
+
+    <style name="WireGuardTheme.MaterialCardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cornerRadius">4dp</item>
+        <item name="contentPadding">8dp</item>
+    </style>
+
+    <style name="WireGuardTheme.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+
+    <style name="Aio">
+        <!-- Removed paddingStart 0dp to fix layout alignment issues -->
+    </style>
+
+    <style name="Aio.ScreenPadding" parent="Aio">
+        <item name="android:paddingStart">@dimen/aio_screen_padding</item>
+        <item name="android:paddingTop">@dimen/aio_screen_padding_compact</item>
+        <item name="android:paddingEnd">@dimen/aio_screen_padding</item>
+        <item name="android:paddingBottom">@dimen/aio_screen_padding_bottom</item>
+    </style>
+
+    <style name="Aio.ScreenPadding.Compact" parent="Aio.ScreenPadding">
+        <item name="android:paddingStart">@dimen/aio_screen_padding_compact</item>
+    </style>
+
+    <style name="Aio.TitleText" parent="Aio">
+        <item name="android:textColor">@color/aio_text_primary</item>
+        <item name="android:textSize">@dimen/aio_title_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Aio.SubtitleText" parent="Aio">
+        <item name="android:textColor">@color/aio_text_secondary</item>
+        <item name="android:textSize">@dimen/aio_subtitle_size</item>
+    </style>
+
+    <style name="Aio.NavContainer" parent="Aio">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/aio_nav_item_height</item>
+        <item name="android:layout_marginStart">@dimen/aio_nav_item_margin_horizontal</item>
+        <item name="android:layout_marginEnd">@dimen/aio_nav_item_margin_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/aio_nav_item_margin_top</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/nav_item_selector</item>
+    </style>
+
+    <style name="Aio.NavContainer.SmallTop" parent="Aio.NavContainer">
+        <item name="android:layout_marginTop">@dimen/aio_nav_item_margin_top_small</item>
+    </style>
+
+    <style name="Aio.NavIcon" parent="Aio">
+        <item name="android:layout_width">@dimen/aio_nav_icon_size</item>
+        <item name="android:layout_height">@dimen/aio_nav_icon_size</item>
+        <item name="android:padding">@dimen/aio_nav_icon_padding</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Aio.NavText" parent="Aio">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:textColor">@color/aio_text_primary</item>
+        <item name="android:textSize">@dimen/aio_nav_text_size</item>
+        <item name="android:alpha">0</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Aio.SectionTitle" parent="Aio">
+        <item name="android:textColor">@color/aio_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/aio_subtitle_size</item>
+    </style>
+
+    <style name="Aio.CardSurface" parent="Aio">
+        <item name="android:background">@drawable/card_glass</item>
+        <item name="android:padding">@dimen/aio_card_padding</item>
+    </style>
+
+    <style name="Aio.SettingsItem" parent="Aio">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/settings_item_selector</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+
+    <style name="Aio.NavText.Weighted" parent="Aio.NavText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Aio.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:windowBackground">@drawable/aio_dialog_background</item>
+        <item name="shapeAppearance">@style/Aio.Dialog.Shape</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Aio.DialogButton.Primary</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Aio.DialogButton.Secondary</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Aio.DialogButton.Secondary</item>
+    </style>
+
+    <style name="Aio.Dialog.Shape" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="Aio.DialogButton.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/aio_dialog_button_tint</item>
+        <item name="android:textColor">@color/aio_dialog_button_text</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+    </style>
+
+    <style name="Aio.DialogButton.Secondary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/aio_dialog_button_tint</item>
+        <item name="android:textColor">@color/aio_dialog_button_text</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+    </style>
+</resources>

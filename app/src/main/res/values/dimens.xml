@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright © 2017-2025 WireGuard LLC. All Rights Reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="bottom_sheet_item_height">56dp</dimen>
+    <dimen name="normal_margin">8dp</dimen>
+    <dimen name="bottom_sheet_top_padding">8dp</dimen>
+    <dimen name="bottom_sheet_icon_padding">16dp</dimen>
+    <dimen name="tunnel_list_placeholder_margin">16dp</dimen>
+
+    <dimen name="aio_nav_width">84dp</dimen>
+    <dimen name="aio_nav_item_height">56dp</dimen>
+    <dimen name="aio_nav_icon_size">56dp</dimen>
+    <dimen name="aio_nav_logo_size">54dp</dimen>
+    <dimen name="aio_nav_logo_margin_start">12dp</dimen>
+    <dimen name="aio_nav_item_margin_horizontal">14dp</dimen>
+    <dimen name="aio_nav_item_margin_top_small">0dp</dimen>
+    <dimen name="aio_nav_item_margin_top">20dp</dimen>
+    <dimen name="aio_nav_icon_padding">12dp</dimen>
+
+    <dimen name="aio_screen_padding">48dp</dimen>
+    <dimen name="aio_screen_padding_compact">32dp</dimen>
+    <dimen name="aio_screen_padding_bottom">40dp</dimen>
+    <dimen name="aio_section_spacing">32dp</dimen>
+    <dimen name="aio_section_title_spacing">14dp</dimen>
+    <dimen name="aio_subtitle_spacing">28dp</dimen>
+    <dimen name="aio_card_padding">24dp</dimen>
+    <dimen name="aio_card_padding_small">6dp</dimen>
+
+    <dimen name="aio_title_size">28sp</dimen>
+    <dimen name="aio_subtitle_size">18sp</dimen>
+    <dimen name="aio_body_size">16sp</dimen>
+    <dimen name="aio_nav_text_size">20sp</dimen>
+    <dimen name="aio_server_title_size">18sp</dimen>
+
+    <dimen name="aio_flag_circle_size">56dp</dimen>
+    <dimen name="aio_flag_icon_size">52dp</dimen>
+    <dimen name="aio_fast_card_width">200dp</dimen>
+    <dimen name="aio_fast_card_height">120dp</dimen>
+    <dimen name="aio_fast_card_footer_height">30dp</dimen>
+</resources>
