@@ -8,6 +8,7 @@ import com.wireguard.android.backend.GoBackend
 import com.wireguard.android.backend.Tunnel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.util.concurrent.TimeoutException
 import java.util.concurrent.atomic.AtomicBoolean
 
 class WireGuardBackend private constructor(
@@ -26,6 +27,11 @@ class WireGuardBackend private constructor(
 
     @Volatile
     private var permissionCallback: PermissionCallback? = null
+
+    data class AlwaysOnStatus(
+        val isAlwaysOn: Boolean,
+        val isLockdownEnabled: Boolean
+    )
 
     interface PermissionCallback {
         fun onVpnPermissionRequired(intent: Intent)
@@ -54,6 +60,21 @@ class WireGuardBackend private constructor(
     override fun getBackendName(): String = "WireGuard"
 
     override fun isConnected(): Boolean = connected.get()
+
+    suspend fun getAlwaysOnStatus(): AlwaysOnStatus? = withContext(Dispatchers.IO) {
+        try {
+            AlwaysOnStatus(
+                isAlwaysOn = backend.isAlwaysOn(),
+                isLockdownEnabled = backend.isLockdownEnabled()
+            )
+        } catch (e: TimeoutException) {
+            Log.d(TAG, "Always-on status unavailable (VPN service not started)")
+            null
+        } catch (e: Exception) {
+            Log.w(TAG, "Unable to read Always-on VPN status", e)
+            null
+        }
+    }
 
     suspend fun retryConnectionAfterPermission() = withContext(Dispatchers.IO) {
         val config = pendingConfig ?: return@withContext

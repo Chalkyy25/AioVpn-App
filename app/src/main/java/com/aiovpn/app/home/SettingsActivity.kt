@@ -4,7 +4,6 @@ import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -123,29 +122,11 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun bindSettings() {
         settingKillSwitch.setOnClickListener {
-            lifecycleScope.launch {
-                val current = settingsStore.requestSystemKillSwitchFlow.first()
-                val newValue = !current
-                settingsStore.setRequestSystemKillSwitch(newValue)
-
-                if (newValue) {
-                    Toast.makeText(
-                        this@SettingsActivity,
-                        "Enable Always-on VPN and Block connections without VPN in Android VPN settings",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                    try {
-                        startActivity(Intent(Settings.ACTION_VPN_SETTINGS))
-                    } catch (_: Exception) {
-                        Toast.makeText(
-                            this@SettingsActivity,
-                            "Could not open VPN settings",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
+            Toast.makeText(
+                this@SettingsActivity,
+                "Kill Switch is coming soon",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         settingAutoConnect.setOnClickListener {
@@ -239,15 +220,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun observeSettings() {
-        lifecycleScope.launch {
-            settingsStore.requestSystemKillSwitchFlow.collect { enabled ->
-                settingKillSwitch.text = if (enabled) {
-                    "Kill Switch  •  Requested"
-                } else {
-                    "Kill Switch  •  Off"
-                }
-            }
-        }
+        settingKillSwitch.text = "Kill Switch  •  Coming soon"
 
         lifecycleScope.launch {
             settingsStore.autoConnectFlow.collect { enabled ->

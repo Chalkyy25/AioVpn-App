@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Copyright © 2017-2025 WireGuard LLC. All Rights Reserved.
   ~ SPDX-License-Identifier: Apache-2.0
   -->
@@ -114,6 +115,11 @@
     <style name="Aio.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="android:windowBackground">@drawable/aio_dialog_background</item>
         <item name="shapeAppearance">@style/Aio.Dialog.Shape</item>
+        <item name="colorSurface">@color/aio_dialog_surface</item>
+        <item name="colorOnSurface">@color/aio_text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/aio_text_secondary</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Aio.DialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/Aio.DialogBody</item>
         <item name="buttonBarPositiveButtonStyle">@style/Aio.DialogButton.Primary</item>
         <item name="buttonBarNegativeButtonStyle">@style/Aio.DialogButton.Secondary</item>
         <item name="buttonBarNeutralButtonStyle">@style/Aio.DialogButton.Secondary</item>
@@ -124,7 +130,21 @@
         <item name="cornerSize">20dp</item>
     </style>
 
+    <style name="Aio.DialogTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/aio_text_primary</item>
+    </style>
+
+    <style name="Aio.DialogBody" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/aio_text_secondary</item>
+    </style>
+
     <style name="Aio.DialogButton.Primary" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="backgroundTint">@color/aio_dialog_button_tint</item>
         <item name="android:textColor">@color/aio_dialog_button_text</item>
         <item name="cornerRadius">20dp</item>
@@ -136,6 +156,8 @@
     </style>
 
     <style name="Aio.DialogButton.Secondary" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="backgroundTint">@color/aio_dialog_button_tint</item>
         <item name="android:textColor">@color/aio_dialog_button_text</item>
         <item name="cornerRadius">20dp</item>

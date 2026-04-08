@@ -51,6 +51,8 @@ class ServerAdapter(
         holder.serverPing.text = item.pingText
         holder.serverFlag.setImageResource(resolveFlagRes(holder.itemView, server.country_code))
 
+        holder.itemView.alpha = 0.96f
+
         holder.itemView.setOnClickListener {
             onServerClick(server)
         }
@@ -58,31 +60,29 @@ class ServerAdapter(
         holder.itemView.setOnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
                 view.animate()
-                    .scaleX(1.03f)
-                    .scaleY(1.03f)
-                    .translationZ(8f)
-                    .setDuration(150)
+                    .scaleX(1.08f)
+                    .scaleY(1.08f)
+                    .alpha(1f)
+                    .setDuration(120)
                     .start()
-                view.isSelected = true
             } else {
                 view.animate()
                     .scaleX(1f)
                     .scaleY(1f)
-                    .translationZ(0f)
-                    .setDuration(150)
+                    .alpha(0.96f)
+                    .setDuration(120)
                     .start()
-                view.isSelected = false
             }
         }
 
         holder.itemView.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-                if (position % 3 == 0) {
-                    onMoveToSidebar()
-                    true
-                } else {
-                    false
-                }
+            if (event.action != KeyEvent.ACTION_DOWN) {
+                return@setOnKeyListener false
+            }
+
+            if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT && position == 0) {
+                onMoveToSidebar()
+                true
             } else {
                 false
             }

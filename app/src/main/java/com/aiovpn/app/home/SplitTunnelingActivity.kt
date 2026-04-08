@@ -84,21 +84,30 @@ class SplitTunnelingActivity : AppCompatActivity() {
 
             val apps = withContext(Dispatchers.IO) {
                 val pm = packageManager
-                val packages = pm.getInstalledPackages(PackageManager.GET_META_DATA)
+                val flags = PackageManager.MATCH_ALL
 
-                packages
-                    .filter {
-                        it.applicationInfo != null &&
-                                pm.getLaunchIntentForPackage(it.packageName) != null &&
-                                it.packageName != packageName
+                val launcherIntents = listOf(
+                    Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER),
+                    Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER)
+                )
+
+                val resolveInfos = launcherIntents.flatMap { intent ->
+                    pm.queryIntentActivities(intent, flags)
+                }
+
+                resolveInfos
+                    .mapNotNull { info -> info.activityInfo?.applicationInfo }
+                    .distinctBy { it.packageName }
+                    .filter { appInfo ->
+                        appInfo.enabled && appInfo.packageName != packageName
                     }
-                    .map {
+                    .map { appInfo ->
                         AppInfo(
-                            name = it.applicationInfo!!.loadLabel(pm).toString(),
-                            packageName = it.packageName,
-                            icon = it.applicationInfo!!.loadIcon(pm),
+                            name = appInfo.loadLabel(pm).toString(),
+                            packageName = appInfo.packageName,
+                            icon = appInfo.loadIcon(pm),
                             isExcluded = mode == SettingsStore.SplitTunnelMode.EXCLUDE_APPS &&
-                                    excluded.contains(it.packageName)
+                                    excluded.contains(appInfo.packageName)
                         )
                     }
                     .sortedBy { it.name.lowercase() }
