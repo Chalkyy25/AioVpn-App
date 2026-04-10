@@ -38,7 +38,7 @@ android {
         release {
             externalNativeBuild {
                 cmake {
-                    arguments("-DANDROID_PACKAGE_NAME=com.aiovpn.app")
+                    arguments("-DANDROID_PACKAGE_NAME=uk.co.aiovpn.android")
                 }
             }
         }
@@ -46,7 +46,7 @@ android {
         debug {
             externalNativeBuild {
                 cmake {
-                    arguments("-DANDROID_PACKAGE_NAME=com.aiovpn.app.debug")
+                    arguments("-DANDROID_PACKAGE_NAME=uk.co.aiovpn.android.debug")
                 }
             }
         }
