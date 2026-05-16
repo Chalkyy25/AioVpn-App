@@ -11,8 +11,8 @@ android {
         applicationId = "uk.co.aiovpn.android"
         minSdk = 24
         targetSdk = 35
-        versionCode = 220
-        versionName = "1.2.1"
+        versionCode = 219
+        versionName = "1.2.0"
     }
 
     buildTypes {
