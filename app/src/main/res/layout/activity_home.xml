@@ -4,172 +4,161 @@
     android:id="@+id/homeDrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aio_background"
-    android:layout_gravity="center"
-    android:clipChildren="false"
-    android:clipToPadding="false">
+    android:background="@color/aio_background">
 
-    <FrameLayout
+    <!-- MAIN CONTENT -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false">
+        android:layout_height="match_parent">
 
-        <!-- MAIN CONTENT AREA -->
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/mainContentWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="84dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:fillViewport="true"
-            android:scrollbars="none">
+        <!-- TOP BAR -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/aio_background"
+            app:title="AIO VPN"
+            app:titleTextColor="@android:color/white"
+            app:navigationIcon="@drawable/ic_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-            <LinearLayout
-                android:id="@+id/homeContent"
-                android:layout_width="match_parent"
+        <!-- TITLE -->
+        <TextView
+            android:id="@+id/homeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Built for Streaming • Fast • Reliable"
+            android:textColor="#EAF1FF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/topBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- CONNECT HERO -->
+        <FrameLayout
+            android:id="@+id/connectHero"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/homeTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/glowView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:scaleType="fitCenter"
+                android:src="@drawable/glow_purple" />
+
+            <View
+                android:id="@+id/connectFocusRing"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:background="@drawable/connect_focus_ring" />
+
+            <ImageView
+                android:id="@+id/buttonGlowView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_glow_purple" />
+
+            <ImageView
+                android:id="@+id/connectButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_glass"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/powerIcon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_power"
+                app:tint="#D9DDE4" />
+        </FrameLayout>
+
+        <!-- STATUS -->
+        <TextView
+            android:id="@+id/statusPill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disconnected"
+            android:textColor="#E6EBF5"
+            android:background="@drawable/pill_disconnected"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/connectHero"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- SELECTED SERVER -->
+        <TextView
+            android:id="@+id/selectedServerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No server selected"
+            android:textColor="#C9D4E8"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/statusPill"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- FASTEST SERVERS -->
+        <LinearLayout
+            android:id="@+id/fastestSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/selectedServerText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/fastestTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingLeft="32dp"
-                android:paddingTop="32dp"
-                android:paddingRight="48dp"
-                android:paddingBottom="28dp">
+                android:text="Fastest Servers"
+                android:textColor="#EAF1FF"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/homeTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="14dp"
-                    android:text="Built for Streaming • Fast • Reliable"
-                    android:textColor="#EAF1FF"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fastestServersRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:overScrollMode="never" />
+        </LinearLayout>
 
-                <!-- HERO CONNECT STACK -->
-                <FrameLayout
-                    android:id="@+id/connectHero"
-                    android:layout_width="320dp"
-                    android:layout_height="320dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:clipChildren="false"
-                    android:clipToPadding="false">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/glowView"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:alpha="0"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/glow_purple" />
-
-                    <View
-                        android:id="@+id/connectFocusRing"
-                        android:layout_width="214dp"
-                        android:layout_height="214dp"
-                        android:layout_gravity="center"
-                        android:alpha="0"
-                        android:background="@drawable/connect_focus_ring" />
-
-                    <ImageView
-                        android:id="@+id/buttonGlowView"
-                        android:layout_width="260dp"
-                        android:layout_height="260dp"
-                        android:layout_gravity="center"
-                        android:alpha="0"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/button_glow_purple" />
-
-                    <ImageView
-                        android:id="@+id/connectButton"
-                        android:layout_width="196dp"
-                        android:layout_height="196dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/button_glass"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true" />
-
-                    <ImageView
-                        android:id="@+id/powerIcon"
-                        android:layout_width="82dp"
-                        android:layout_height="82dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_power"
-                        app:tint="#D9DDE4" />
-                </FrameLayout>
-
-                <TextView
-                    android:id="@+id/statusPill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-6dp"
-                    android:background="@drawable/pill_disconnected"
-                    android:paddingLeft="28dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="28dp"
-                    android:paddingBottom="10dp"
-                    android:text="Disconnected"
-                    android:textColor="#E6EBF5"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/selectedServerText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:text="No server selected"
-                    android:textColor="#C9D4E8"
-                    android:textSize="18sp" />
-
-                <Space
-                    android:layout_width="1dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <LinearLayout
-                    android:id="@+id/fastestSection"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="18dp"
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/fastestTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="14dp"
-                        android:text="Fastest Servers"
-                        android:textColor="#EAF1FF"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/fastestServersRecycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:clipChildren="false"
-                        android:clipToPadding="false"
-                        android:overScrollMode="never"
-                        android:paddingLeft="20dp"
-                        android:paddingTop="12dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="32dp"
-                        android:scrollbars="none" />
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-        <!-- UNIFIED PERSISTENT SIDEBAR -->
-        <include layout="@layout/layout_side_nav" />
-
-    </FrameLayout>
+    <!-- DRAWER -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

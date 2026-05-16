@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:installLocation="internalOnly">
 
-    <!-- Fire TV / Android TV support: require Leanback for TV-only behavior -->
+    <!-- Fire TV / Android TV -->
     <uses-feature
         android:name="android.software.leanback"
         android:required="true" />
@@ -10,17 +11,19 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".App"
         android:allowBackup="true"
         android:banner="@drawable/banner"
         android:icon="@mipmap/ic_launcher"
-        android:logo="@drawable/banner"
         android:label="@string/aio_app_name"
+        android:logo="@drawable/banner"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AioVpn">
@@ -28,16 +31,12 @@
         <activity
             android:name="uk.co.aiovpn.android.auth.SplashActivity"
             android:banner="@drawable/banner"
-            android:logo="@drawable/banner"
             android:exported="true"
+            android:logo="@drawable/banner"
             android:theme="@style/Theme.AioVpn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-                <!--
-                Adding LAUNCHER back as a fallback,
-                though LEANBACK_LAUNCHER is primary for Fire TV
-                -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -52,11 +51,11 @@
             android:exported="false" />
 
         <activity
-            android:name="uk.co.aiovpn.android.home.HomeActivity"
+            android:name="uk.co.aiovpn.android.login.ServerListActivity"
             android:exported="false" />
 
         <activity
-            android:name="uk.co.aiovpn.android.login.ServerListActivity"
+            android:name="uk.co.aiovpn.android.home.HomeActivity"
             android:exported="false" />
 
         <activity
@@ -69,8 +68,20 @@
 
         <activity
             android:name="uk.co.aiovpn.android.home.SplitTunnelingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
 
+        <!-- App update receiver -->
+        <receiver
+            android:name="uk.co.aiovpn.android.updater.AppUpdatedReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- FileProvider for updater APK install -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -82,5 +93,17 @@
         </provider>
 
     </application>
+
+    <!-- Needed so split tunnelling / app picker can discover installed launchable apps -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        </intent>
+    </queries>
 
 </manifest>

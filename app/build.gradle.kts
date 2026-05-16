@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "uk.co.aiovpn.android"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "uk.co.aiovpn.android"
         minSdk = 24
         targetSdk = 35
-        versionCode = 219
-        versionName = "1.2.0"
+        versionCode = 220
+        versionName = "1.2.1"
     }
 
     buildTypes {
