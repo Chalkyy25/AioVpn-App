@@ -15,7 +15,7 @@
         app:navigationIcon="@drawable/ic_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_endEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <HorizontalScrollView
         android:id="@+id/filterScroll"
@@ -27,7 +27,7 @@
         android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_endEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:id="@+id/filterRow"
@@ -63,6 +63,6 @@
         app:layout_constraintTop_toBottomOf="@id/filterScroll"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_endEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
