@@ -39,8 +39,8 @@
     <!-- Larger Logo -->
     <ImageView
         android:id="@+id/logoView"
-        android:layout_width="220dp"
-        android:layout_height="120dp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:scaleType="fitCenter"
         android:src="@drawable/aio_vpn_logo"
         app:layout_constraintTop_toTopOf="parent"
