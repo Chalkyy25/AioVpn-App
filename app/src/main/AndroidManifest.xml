@@ -20,19 +20,19 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:banner="@drawable/banner"
+        android:banner="@mipmap/ic_banner"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/aio_app_name"
-        android:logo="@drawable/banner"
+        android:logo="@mipmap/ic_banner"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AioVpn">
 
         <activity
             android:name="uk.co.aiovpn.android.auth.SplashActivity"
-            android:banner="@drawable/banner"
+            android:banner="@mipmap/ic_banner"
             android:exported="true"
-            android:logo="@drawable/banner"
+            android:logo="@mipmap/ic_banner"
             android:theme="@style/Theme.AioVpn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

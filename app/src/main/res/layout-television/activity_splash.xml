@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/tv_logo_banner" />
+            android:src="@drawable/aio_vpn_logo" />
 
         <ProgressBar
             android:id="@+id/loadingIndicator"
